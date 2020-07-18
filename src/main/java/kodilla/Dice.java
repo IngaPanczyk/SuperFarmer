@@ -22,7 +22,7 @@ public class Dice {
 
     public static Animal blueDice() {
         Random randomOrange = new Random();
-        int z = randomOrange.nextInt(12);
+        int z = randomOrange.nextInt(1000);
         if (z == 1) {
             return Animal.COW;
         } else if (z == 2) {
@@ -35,4 +35,5 @@ public class Dice {
             return Animal.PIG;
         }
     }
+
 }

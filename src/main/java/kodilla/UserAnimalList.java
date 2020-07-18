@@ -15,6 +15,8 @@ public class UserAnimalList {
     public void addAnimalBlue(Animal blue) {
         animalList.add(blue);
     }
+    //Wyświetlenie ilości zwierzątek w kolekjcji
+
 
     //Sprawdzenie czy zwierzątko z kostki jest w kolekcji i w jakiej ilości
     public int checkQuantityPig() {
@@ -32,8 +34,28 @@ public class UserAnimalList {
         return occurrences;
     }
 
-    public int getSize() {
+    public void getSize() {
         int size = animalList.size();
-        return size;
+        System.out.println("Ilość zwierzątek w kolekcji " + size);
+    }
+
+    public void fullfilList() {
+        animalList.add(Animal.HORSE);
+        animalList.add(Animal.COW);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.PIG);
+        animalList.add(Animal.HORSE);
+        animalList.add(Animal.COW);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.PIG);
+        animalList.add(Animal.HORSE);
+        animalList.add(Animal.COW);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.PIG);
+        animalList.add(Animal.HORSE);
+        animalList.add(Animal.COW);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.PIG);
+
     }
 }

@@ -14,6 +14,7 @@ public class SuperFarmer {
         //Test Gra
         Game game = new Game();
         game.greeding();
+        System.out.println(game.getBlue());
     }
 
 
