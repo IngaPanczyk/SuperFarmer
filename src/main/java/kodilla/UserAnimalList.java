@@ -19,9 +19,10 @@ public class UserAnimalList {
 
 
     //Sprawdzenie czy zwierzątko z kostki jest w kolekcji i w jakiej ilości
-    public int checkQuantityPig() {
-        int occurrences = Collections.frequency(animalList, Animal.PIG);
-        return occurrences;
+    public double checkQuantityPig() {
+        double occurrences = Collections.frequency(animalList, Animal.PIG);
+        double quantityOfpairOfPig = occurrences/2;
+        return  quantityOfpairOfPig;
     }
 
     public int checkQuantitySheep() {
@@ -40,22 +41,16 @@ public class UserAnimalList {
     }
 
     public void fullfilList() {
-        animalList.add(Animal.HORSE);
-        animalList.add(Animal.COW);
-        animalList.add(Animal.RABBIT);
         animalList.add(Animal.PIG);
-        animalList.add(Animal.HORSE);
-        animalList.add(Animal.COW);
-        animalList.add(Animal.RABBIT);
         animalList.add(Animal.PIG);
-        animalList.add(Animal.HORSE);
-        animalList.add(Animal.COW);
-        animalList.add(Animal.RABBIT);
         animalList.add(Animal.PIG);
-        animalList.add(Animal.HORSE);
-        animalList.add(Animal.COW);
-        animalList.add(Animal.RABBIT);
         animalList.add(Animal.PIG);
 
+    }
+
+    public void exchangePig() {
+        animalList.remove(Animal.PIG);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.SHEEP);
     }
 }
