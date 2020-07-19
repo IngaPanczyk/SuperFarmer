@@ -11,8 +11,8 @@ public class SuperFarmer {
         Dice dice = new Dice();
         dice.orangeDice();
         dice.blueDice();
-        System.out.println(dice.blueDice());
-        System.out.println(dice.orangeDice());
+        System.out.println("Kostka pomarańczowa: " + dice.blueDice());
+        System.out.println("Kostka niebieska: "+  dice.orangeDice());
         //Rozmnażanie
         Greeding greeding = new Greeding();
         greeding.greeding();

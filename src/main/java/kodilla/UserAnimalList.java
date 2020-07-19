@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class UserAnimalList {
+public class UserAnimalList extends Exchange{
     List<Animal> animalList = new ArrayList<>();
 
     //Dodanie zwierzątka do kolekcji użytkowinka - z kostki pomarańczowej

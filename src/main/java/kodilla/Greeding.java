@@ -30,12 +30,12 @@ public class Greeding extends  Exchange{
         //Remis
         if (orange == blue) {
             userAnimalList.addAnimalOrange(orange);
-            System.out.println("Był remis");
-            //!!! Dlaczego nie dodaje się jeśli jest to samo na obu kostkach?
-            //Dodanie zwierzątka do kolekcji
-        } else if (orange == Animal.PIG || blue == Animal.PIG) {
+            System.out.println("Wyrzucono parę zwierzątek");
+        }
+        //Dodanie zwierzątka do kolekcji
+        if (orange == Animal.PIG || blue == Animal.PIG) {
             int n = 1;
-            while ((quantityOfPairOfPig + 1) > n) {
+            while ((quantityOfPairOfPig + 1.0) > n) {
                 n++;
                 userAnimalList.addAnimalOrange(Animal.PIG);
             }
