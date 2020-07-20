@@ -1,19 +1,4 @@
-/*
-package kodilla;
 
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
-public class Visual {
-}
 package kodilla;
 
 
@@ -28,7 +13,7 @@ package kodilla;
         import javafx.scene.paint.Color;
         import javafx.stage.Stage;
 
-public class SuperFarmer extends Application {
+/*ublic class Visual extends Application {
 
     private Image imageback = new Image("file:src/main/resources/farma.jpg");
     private Image card = new Image("file:src/main/resources/owca.jpg");
@@ -63,5 +48,6 @@ public class SuperFarmer extends Application {
         primaryStage.show();
     }
 }
+
 
 */

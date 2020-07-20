@@ -2,8 +2,9 @@ package kodilla;
 
 public class Exchange {
 
-    public UserAnimalList exchange() {
+    public UserAnimalList exchange(Greeding greading) {
         UserAnimalList userAnimalList = new UserAnimalList();
+        //Wprowadzenie zwierzątka do wymany na razie "ręczne"
         Animal animalForExchange = Animal.PIG;
         if (animalForExchange == Animal.PIG)
             userAnimalList.exchangePig();

@@ -52,5 +52,6 @@ public class UserAnimalList extends Exchange{
         animalList.remove(Animal.PIG);
         animalList.add(Animal.SHEEP);
         animalList.add(Animal.SHEEP);
+        System.out.println(animalList.size());
     }
 }

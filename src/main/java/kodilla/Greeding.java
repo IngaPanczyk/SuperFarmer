@@ -1,6 +1,6 @@
 package kodilla;
 
-public class Greeding extends  Exchange{
+public class Greeding extends UserAnimalList {
     Animal orange;
     Animal blue;
 
@@ -28,21 +28,28 @@ public class Greeding extends  Exchange{
         double quantityOfPairOfPig = userAnimalList.checkQuantityPig();
         System.out.println("Ilość par zwierzątek " + quantityOfPairOfPig);
         //Remis
-        if (orange == blue) {
+        if (orange ==  blue ) {
             userAnimalList.addAnimalOrange(orange);
-            System.out.println("Wyrzucono parę zwierzątek");
+            System.out.println("!!!!Wyrzucono parę zwierzątek");
+
         }
         //Dodanie zwierzątka do kolekcji
-        if (orange == Animal.PIG || blue == Animal.PIG) {
+        else if (orange == Animal.PIG) {
             int n = 1;
             while ((quantityOfPairOfPig + 1.0) > n) {
                 n++;
                 userAnimalList.addAnimalOrange(Animal.PIG);
             }
+        } else if (blue == Animal.PIG) {
+            int n = 1;
+            while ((quantityOfPairOfPig + 1.0) > n) {
+                n++;
+                userAnimalList.addAnimalBlue(Animal.PIG);
+            }
+
         }
         userAnimalList.getSize();
         return userAnimalList;
     }
-
 }
 
