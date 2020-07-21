@@ -38,7 +38,7 @@ public class SuperFarmer extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        //Kostka
+       /* //Kostka
         Dice dice = new Dice();
         dice.orangeDice();
         dice.blueDice();
@@ -48,7 +48,7 @@ public class SuperFarmer extends Application {
         Greeding greeding = new Greeding();
         greeding.greeding();
         //Wymiana
-        greeding.exchangePig();
+        greeding.exchangePig();*/
     }
 
     @Override
@@ -70,7 +70,8 @@ public class SuperFarmer extends Application {
         Button exchangePig = new Button();
         exchangePig.setText("PIG");
         exchangePig.setOnAction((e) -> {
-            System.out.println("Przycisk");
+            Greeding greeding = new Greeding();
+            greeding.exchangePig();
         });
 
         Button exchangeRabbit = new Button();
@@ -83,8 +84,25 @@ public class SuperFarmer extends Application {
         exchangeSheep.setText("SHEEP");
         exchangeSheep.setOnAction((e) -> {
             System.out.println("Przycisk");
+
+
         });
 
+        Button test = new Button();
+        test.setText("Test");
+        test.setOnAction((event -> {
+            //Kostka
+            Dice dice = new Dice();
+            dice.orangeDice();
+            dice.blueDice();
+            System.out.println("Kostka pomarańczowa: " + dice.blueDice());
+            System.out.println("Kostka niebieska: " + dice.orangeDice());
+            //Rozmnażanie
+            Greeding greeding = new Greeding();
+            greeding.greeding();
+            //Wymiana
+            greeding.exchangePig();
+        }));
 
         ImageView img = new ImageView(rabbit);
         ImageView img1 = new ImageView(sheep);
@@ -108,6 +126,9 @@ public class SuperFarmer extends Application {
         grid.add(exchangePig, 8, 12);
         grid.add(exchangeRabbit, 9, 12);
         grid.add(exchangeSheep, 10, 12);
+        grid.add(test, 11, 12);
+
+
         grid.add(totalLabel, 4, 31, 2, 1);
 
 

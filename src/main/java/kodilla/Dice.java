@@ -6,7 +6,7 @@ public class Dice {
 
     public static Animal orangeDice() {
         Random randomBlue = new Random();
-        int n = randomBlue.nextInt(12);
+        int n = randomBlue.nextInt(13);
         if (n == 1) {
             return Animal.HORSE;
         } else if (n == 2) {

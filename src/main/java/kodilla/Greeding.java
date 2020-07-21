@@ -33,12 +33,11 @@ public class Greeding extends UserAnimalList {
             System.out.println("!!!!Wyrzucono parę zwierzątek");
         }
         //Dodanie zwierzątka do kolekcji
-        else if (orange == Animal.PIG) {
-            int n = 1;
-            while ((quantityOfPairOfPig + 1.0) > n) {
-                n++;
+        if (orange == Animal.PIG) {
+            for (int n = 0; n<quantityOfPairOfPig + 1; n++){
                 userAnimalList.addAnimalOrange(Animal.PIG);
             }
+
         } else if (blue == Animal.PIG) {
             int n = 1;
             while ((quantityOfPairOfPig + 1.0) > n) {
@@ -47,7 +46,6 @@ public class Greeding extends UserAnimalList {
             }
 
         }
-        userAnimalList.getSize();
         return userAnimalList;
     }
 }
