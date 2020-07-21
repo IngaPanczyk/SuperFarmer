@@ -28,10 +28,9 @@ public class Greeding extends UserAnimalList {
         double quantityOfPairOfPig = userAnimalList.checkQuantityPig();
         System.out.println("Ilość par zwierzątek " + quantityOfPairOfPig);
         //Remis
-        if (orange ==  blue ) {
+        if (orange ==  blue) {
             userAnimalList.addAnimalOrange(orange);
             System.out.println("!!!!Wyrzucono parę zwierzątek");
-
         }
         //Dodanie zwierzątka do kolekcji
         else if (orange == Animal.PIG) {

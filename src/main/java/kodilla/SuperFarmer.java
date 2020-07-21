@@ -7,10 +7,12 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.concurrent.Exchanger;
@@ -18,7 +20,7 @@ import java.util.concurrent.Exchanger;
 import static javafx.application.Application.launch;
 
 public class SuperFarmer extends Application {
-    private Image imageback = new Image("file:src/main/resources/Plansza do gry.png");
+    private Image imageback = new Image("file:src/main/resources/Plansza do gry (2).png");
     private Image rabbit = new Image("file:src/main/resources/Rabbit.png", 100.0, 100.0, true, true);
     private Image fox = new Image("file:src/main/resources/Fox.png", 100.0, 100.0, true, true);
     private Image sheep = new Image("file:src/main/resources/Sheep.png", 100.0, 100.0, true, true);
@@ -32,6 +34,7 @@ public class SuperFarmer extends Application {
     private FlowPane pigs = new FlowPane(Orientation.HORIZONTAL);
     private FlowPane cows = new FlowPane(Orientation.HORIZONTAL);
     private FlowPane horses = new FlowPane(Orientation.HORIZONTAL);
+    private Label totalLabel = new Label();
 
     public static void main(String[] args) {
         launch(args);
@@ -53,6 +56,9 @@ public class SuperFarmer extends Application {
         BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(imageback, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
         Background background = new Background(backgroundImage);
+        //Ustawienia etykiety
+        totalLabel.setFont(new Font("Arial", 30));
+        totalLabel.setTextFill(Color.web("blue"));
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_LEFT);
@@ -61,9 +67,21 @@ public class SuperFarmer extends Application {
         grid.setVgap(5.5);
         grid.setBackground(background);
 
-        Button newbtn = new Button();
-        newbtn.setText("Wymiana");
-        newbtn.setOnAction((e) -> {
+        Button exchangePig = new Button();
+        exchangePig.setText("PIG");
+        exchangePig.setOnAction((e) -> {
+            System.out.println("Przycisk");
+        });
+
+        Button exchangeRabbit = new Button();
+        exchangeRabbit.setText("RABBIT");
+        exchangeRabbit.setOnAction((e) -> {
+            System.out.println("Przycisk");
+        });
+
+        Button exchangeSheep = new Button();
+        exchangeSheep.setText("SHEEP");
+        exchangeSheep.setOnAction((e) -> {
             System.out.println("Przycisk");
         });
 
@@ -73,21 +91,24 @@ public class SuperFarmer extends Application {
         ImageView img2 = new ImageView(pig);
         ImageView img3 = new ImageView(cow);
         ImageView img4 = new ImageView(horse);
-        ImageView img5 = new ImageView(rabbit);
-
+        //Zdjęcia
         rabbits.getChildren().add(img);
-        rabbits.getChildren().add(img5);
         sheep1.getChildren().add(img1);
         pigs.getChildren().add(img2);
         cows.getChildren().add(img3);
         horses.getChildren().add(img4);
+        //Etykiety
+        totalLabel.setText("Mateusz");
 
-        grid.add(rabbits, 5, 42);
-        grid.add(sheep1, 5, 43);
-        grid.add(pigs, 5, 44);
-        grid.add(cows, 5, 45);
-        grid.add(horses, 5, 46);
-        grid.add(newbtn, 8, 2);
+        grid.add(rabbits, 4, 42);
+        grid.add(sheep1, 4, 43);
+        grid.add(pigs, 4, 44);
+        grid.add(cows, 4, 45);
+        grid.add(horses, 4, 46);
+        grid.add(exchangePig, 8, 12);
+        grid.add(exchangeRabbit, 9, 12);
+        grid.add(exchangeSheep, 10, 12);
+        grid.add(totalLabel, 4, 31, 2, 1);
 
 
         Scene scene = new Scene(grid, 1600, 900, Color.YELLOW);
