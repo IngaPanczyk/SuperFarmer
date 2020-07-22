@@ -19,7 +19,7 @@ import java.util.concurrent.Exchanger;
 
 import static javafx.application.Application.launch;
 
-public class SuperFarmer extends Application {
+public class SuperFarmer /*extends Application*/ {
     private Image imageback = new Image("file:src/main/resources/Plansza do gry (2).png");
     private Image rabbit = new Image("file:src/main/resources/Rabbit.png", 100.0, 100.0, true, true);
     private Image fox = new Image("file:src/main/resources/Fox.png", 100.0, 100.0, true, true);
@@ -35,23 +35,29 @@ public class SuperFarmer extends Application {
     private FlowPane cows = new FlowPane(Orientation.HORIZONTAL);
     private FlowPane horses = new FlowPane(Orientation.HORIZONTAL);
     private Label totalLabel = new Label();
+    private Label blueDice = new Label();
+    private Label orangeDice = new Label();
+
 
     public static void main(String[] args) {
-        launch(args);
-       /* //Kostka
+        //launch(args);
+        //Rzut
         Dice dice = new Dice();
-        dice.orangeDice();
-        dice.blueDice();
-        System.out.println("Kostka pomarańczowa: " + dice.blueDice());
-        System.out.println("Kostka niebieska: " + dice.orangeDice());
+        Animal orange = dice.orangeDice();
+        Animal blue = dice.blueDice();
+        UserAnimalList list = new UserAnimalList();
+        System.out.println(orange);
+        System.out.println(blue);
         //Rozmnażanie
         Greeding greeding = new Greeding();
-        greeding.greeding();
+        UserAnimalList userAnimalList = greeding.greeding(orange, blue, list);
         //Wymiana
-        greeding.exchangePig();*/
+        userAnimalList.exchangePig();
+
+        userAnimalList.exchange(greeding, Animal.PIG);
     }
 
-    @Override
+    /*@Override
     public void start(Stage primaryStage) throws Exception {
         BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(imageback, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
@@ -59,6 +65,11 @@ public class SuperFarmer extends Application {
         //Ustawienia etykiety
         totalLabel.setFont(new Font("Arial", 30));
         totalLabel.setTextFill(Color.web("blue"));
+        orangeDice.setFont(new Font("Arial", 50));
+        orangeDice.setTextFill(Color.web("orange"));
+        blueDice.setFont(new Font("Arial", 50));
+        blueDice.setTextFill(Color.web("blue"));
+
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_LEFT);
@@ -66,6 +77,19 @@ public class SuperFarmer extends Application {
         grid.setHgap(5.5);
         grid.setVgap(5.5);
         grid.setBackground(background);
+        //Rzut kostkami
+        Button throwDice = new Button();
+        throwDice.setText("RZUT KOSTKAMI");
+        throwDice.setOnAction((e) -> {
+            Dice dice = new Dice();
+            dice.orangeDice();
+            dice.blueDice();
+
+            grid.add(orangeDice, 10, 40, 2, 1);
+            orangeDice.setText(String.valueOf(dice.orangeDice()));
+            grid.add(blueDice, 15, 40, 2, 1);
+            blueDice.setText(String.valueOf(dice.blueDice()));
+        });
 
         Button exchangePig = new Button();
         exchangePig.setText("PIG");
@@ -84,24 +108,11 @@ public class SuperFarmer extends Application {
         exchangeSheep.setText("SHEEP");
         exchangeSheep.setOnAction((e) -> {
             System.out.println("Przycisk");
-
-
         });
 
         Button test = new Button();
         test.setText("Test");
         test.setOnAction((event -> {
-            //Kostka
-            Dice dice = new Dice();
-            dice.orangeDice();
-            dice.blueDice();
-            System.out.println("Kostka pomarańczowa: " + dice.blueDice());
-            System.out.println("Kostka niebieska: " + dice.orangeDice());
-            //Rozmnażanie
-            Greeding greeding = new Greeding();
-            greeding.greeding();
-            //Wymiana
-            greeding.exchangePig();
         }));
 
         ImageView img = new ImageView(rabbit);
@@ -127,16 +138,16 @@ public class SuperFarmer extends Application {
         grid.add(exchangeRabbit, 9, 12);
         grid.add(exchangeSheep, 10, 12);
         grid.add(test, 11, 12);
+        grid.add(throwDice, 12, 12);
 
-
+        //Dodawanie etykiet
         grid.add(totalLabel, 4, 31, 2, 1);
-
 
         Scene scene = new Scene(grid, 1600, 900, Color.YELLOW);
 
         primaryStage.setTitle("SuperFarmer");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
+    }*/
 
 }

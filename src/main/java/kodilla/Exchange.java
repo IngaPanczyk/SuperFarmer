@@ -2,16 +2,17 @@ package kodilla;
 
 public class Exchange {
 
-    public UserAnimalList exchange(Greeding greading) {
-        UserAnimalList userAnimalList = new UserAnimalList();
+    public void exchange(Greeding greeding, Animal animalForExchange) {
+        //Greeding greeding = new Greeding();
+        //UserAnimalList userAnimalList = new UserAnimalList();
         //Wprowadzenie zwierzątka do wymany na razie "ręczne"
         System.out.println("Dokonano wymiany 1 świnki na 2 owce");
-        Animal animalForExchange = Animal.PIG;
+        //Animal animalForExchange = Animal.PIG;
         if (animalForExchange == Animal.PIG)
-            userAnimalList.exchangePig();
+            greeding.exchangePig();
         System.out.println("Dokonano wymiany 1 świnki na 2 owce");
-        userAnimalList.getSize();
-        return userAnimalList;
+        //userAnimalList.getSize();
+        greeding.getSize();
 
     }
 }

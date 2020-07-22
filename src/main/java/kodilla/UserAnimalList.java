@@ -19,10 +19,9 @@ public class UserAnimalList extends Exchange{
 
 
     //Sprawdzenie czy zwierzątko z kostki jest w kolekcji i w jakiej ilości
-    public double checkQuantityPig() {
-        double occurrences = Collections.frequency(animalList, Animal.PIG);
-        double quantityOfpairOfPig = occurrences/2;
-        return  quantityOfpairOfPig;
+    public int checkQuantityPig() {
+        int occurrences = Collections.frequency(animalList, Animal.PIG);
+        return  occurrences;
     }
 
     public int checkQuantitySheep() {
@@ -32,6 +31,15 @@ public class UserAnimalList extends Exchange{
 
     public int checkQuantityRabbit() {
         int occurrences = Collections.frequency(animalList, Animal.RABBIT);
+        return occurrences;
+    }
+
+    protected int checkQuantityHorse() {
+        int occurrences = Collections.frequency(animalList, Animal.HORSE);
+        return occurrences;
+    }
+    public int checkQuantityCow() {
+        int occurrences = Collections.frequency(animalList, Animal.COW);
         return occurrences;
     }
 
@@ -45,13 +53,24 @@ public class UserAnimalList extends Exchange{
         animalList.add(Animal.PIG);
         animalList.add(Animal.PIG);
         animalList.add(Animal.PIG);
-
+        animalList.add(Animal.PIG);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.SHEEP);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.RABBIT);
+        animalList.add(Animal.RABBIT);
     }
 
     public void exchangePig() {
+        System.out.println("Ilość zwierzątke przed wymianą:" + animalList.size());
         animalList.remove(Animal.PIG);
         animalList.add(Animal.SHEEP);
         animalList.add(Animal.SHEEP);
-        System.out.println(animalList.size());
+        System.out.println("Ilość zwierzątke po wymianie:" + animalList.size());
     }
 }
