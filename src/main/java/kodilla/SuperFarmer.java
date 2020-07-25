@@ -15,11 +15,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.concurrent.Exchanger;
 
 import static javafx.application.Application.launch;
 
-public class SuperFarmer /*extends Application*/ {
+public class SuperFarmer extends Application {
     private Image imageback = new Image("file:src/main/resources/Plansza do gry (2).png");
     private Image rabbit = new Image("file:src/main/resources/Rabbit.png", 100.0, 100.0, true, true);
     private Image fox = new Image("file:src/main/resources/Fox.png", 100.0, 100.0, true, true);
@@ -37,11 +38,16 @@ public class SuperFarmer /*extends Application*/ {
     private Label totalLabel = new Label();
     private Label blueDice = new Label();
     private Label orangeDice = new Label();
+    private Label qOfRabbits = new Label();
+    private Label qOfPigs = new Label();
+    private Label qOfSheep = new Label();
+    private Label qofCows = new Label();
+    private Label qofHorses = new Label();
 
 
     public static void main(String[] args) {
-        //launch(args);
-        //Rzut
+        launch(args);
+/*        //Rzut
         Dice dice = new Dice();
         Animal orange = dice.orangeDice();
         Animal blue = dice.blueDice();
@@ -52,12 +58,12 @@ public class SuperFarmer /*extends Application*/ {
         Greeding greeding = new Greeding();
         UserAnimalList userAnimalList = greeding.greeding(orange, blue, list);
         //Wymiana
-        userAnimalList.exchangePig();
-
-        userAnimalList.exchange(greeding, Animal.PIG);
+        //userAnimalList.exchangePig();
+        Exchange exchange = new Exchange();
+        exchange.exchange(userAnimalList,Animal.PIG);*/
     }
 
-    /*@Override
+    @Override
     public void start(Stage primaryStage) throws Exception {
         BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(imageback, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
@@ -78,24 +84,41 @@ public class SuperFarmer /*extends Application*/ {
         grid.setVgap(5.5);
         grid.setBackground(background);
         //Rzut kostkami
+
         Button throwDice = new Button();
         throwDice.setText("RZUT KOSTKAMI");
         throwDice.setOnAction((e) -> {
             Dice dice = new Dice();
-            dice.orangeDice();
-            dice.blueDice();
+            Animal orange = dice.orangeDice();
+            Animal blue = dice.blueDice();
+            UserAnimalList list = new UserAnimalList();
+            //Dodanie zwierzatek do kolekcji
+            Greeding greeding = new Greeding();
+            UserAnimalList userAnimalList = greeding.greeding(orange, blue, list);
 
-            grid.add(orangeDice, 10, 40, 2, 1);
-            orangeDice.setText(String.valueOf(dice.orangeDice()));
-            grid.add(blueDice, 15, 40, 2, 1);
-            blueDice.setText(String.valueOf(dice.blueDice()));
+            grid.add(orangeDice, 2, 5, 3, 5);
+            orangeDice.setText(String.valueOf(orange));
+            grid.add(blueDice, 2, 5, 3, 5);
+            blueDice.setText(String.valueOf(blue));
+
+            //Wyświetlenie zwierzątka i jego ilości
+            List animalList = list.startGame();
+
+            if (userAnimalList.checkQuantityRabbit(animalList) > 0) {
+                grid.add(rabbits, 4, 42);
+            }
+        });
+        Button throwComputer = new Button();
+        throwComputer.setText("Za");
+        throwComputer.setOnAction((e) -> {
+            grid.clearConstraints(orangeDice);
+            grid.clearConstraints(blueDice);
         });
 
         Button exchangePig = new Button();
         exchangePig.setText("PIG");
         exchangePig.setOnAction((e) -> {
-            Greeding greeding = new Greeding();
-            greeding.exchangePig();
+            Exchange exchange = new Exchange();
         });
 
         Button exchangeRabbit = new Button();
@@ -129,16 +152,25 @@ public class SuperFarmer /*extends Application*/ {
         //Etykiety
         totalLabel.setText("Mateusz");
 
-        grid.add(rabbits, 4, 42);
-        grid.add(sheep1, 4, 43);
-        grid.add(pigs, 4, 44);
-        grid.add(cows, 4, 45);
-        grid.add(horses, 4, 46);
-        grid.add(exchangePig, 8, 12);
+        grid.getColumnConstraints().add(new ColumnConstraints(30)); // column 0 is 100 wide
+        grid.getColumnConstraints().add(new ColumnConstraints(150)); // column 1 is 200 wide
+        grid.getColumnConstraints().add(new ColumnConstraints(150)); // column 0 is 100 wide
+        grid.getColumnConstraints().add(new ColumnConstraints(150)); // column 1 is 200 wide
+        grid.getColumnConstraints().add(new ColumnConstraints(150)); // column 0 is 100 wide
+        grid.getColumnConstraints().add(new ColumnConstraints(150)); // column 1 is 200 wide
+        grid.getRowConstraints().add(new RowConstraints(100)); // column 0 is 100 wide
+        grid.getRowConstraints().add(new RowConstraints(100)); // column 0
+        grid.add(rabbits, 1, 10);
+        grid.add(sheep1, 1, 11);
+        grid.add(pigs, 1, 12);
+        grid.add(cows, 1, 13);
+        grid.add(horses, 1,14);
+        grid.add(exchangePig, 8, 14);
         grid.add(exchangeRabbit, 9, 12);
         grid.add(exchangeSheep, 10, 12);
         grid.add(test, 11, 12);
-        grid.add(throwDice, 12, 12);
+        grid.add(throwDice, 2, 1);
+        grid.add(throwComputer, 3, 1);
 
         //Dodawanie etykiet
         grid.add(totalLabel, 4, 31, 2, 1);
@@ -148,6 +180,6 @@ public class SuperFarmer /*extends Application*/ {
         primaryStage.setTitle("SuperFarmer");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }*/
+    }
 
 }
